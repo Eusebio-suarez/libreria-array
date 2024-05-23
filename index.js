@@ -47,7 +47,7 @@ let libros = [
         estado: "Como nuevo",
         ubicacion: "Tienda Digital",
         fecha_publicacion: "1949",
-        editorial: "Secker & Warburg",
+        editorial: "Sudamericana",
         paginas: 328,
         dimensiones: "Digital",
         peso: "1 kg"
@@ -65,7 +65,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería Romántica",
         fecha_publicacion: "1813",
-        editorial: "Babel Libros",
+        editorial: "Sudamericana",
         paginas: 279,
         dimensiones: "13 x 20 cm",
         peso: "0.6 kg"
@@ -83,7 +83,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería Mágica",
         fecha_publicacion: "1997",
-        editorial: "Salamandra",
+        editorial: "Sudamericana",
         paginas: 254,
         dimensiones: "14 x 22 cm",
         peso: "1.0 kg"
@@ -101,7 +101,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería de la Universidad",
         fecha_publicacion: "2007",
-        editorial: "Plaza & Janés",
+        editorial: "Sudamericana",
         paginas: 816,
         dimensiones: "16 x 24 cm",
         peso: "1.2 kg"
@@ -119,7 +119,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería de la Universidad",
         fecha_publicacion: "1945",
-        editorial: "Skala",
+        editorial: "letra minuscula",
         paginas: 135,
         dimensiones: "20 x 30 cm",
         peso: "0.5 kg"
@@ -155,7 +155,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería Clásicos Eternos",
         fecha_publicacion: "1605",
-        editorial: "Francisco de Robles",
+        editorial: "letra minuscula",
         paginas: 1056,
         dimensiones: "15 x 22 cm",
         peso: "1.2 kg"
@@ -173,7 +173,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería El Almacén de Libros",
         fecha_publicacion: "1982",
-        editorial: "Plaza & Janés",
+        editorial: "letra minuscula",
         paginas: 448,
         dimensiones: "14 x 21 cm",
         peso: "0.9 kg"
@@ -191,7 +191,7 @@ let libros = [
         estado: "Usado",
         ubicacion: "Librería Voces de Papel",
         fecha_publicacion: "1955",
-        editorial: "Fondo de Cultura Económica",
+        editorial: "letra minuscula",
         paginas: 124,
         dimensiones: "12 x 19 cm",
         peso: "0.4 kg"
@@ -209,7 +209,7 @@ let libros = [
         estado: "Usado",
         ubicacion: "Librería La Lectura Infinita",
         fecha_publicacion: "1963",
-        editorial: "Sudamericana",
+        editorial: "Emecé Editores",
         paginas: 736,
         dimensiones: "13 x 20 cm",
         peso: "1.0 kg"
@@ -245,7 +245,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería Romance Eterno",
         fecha_publicacion: "1985",
-        editorial: "Sudamericana",
+        editorial: "Emecé Editores",
         paginas: 368,
         dimensiones: "14 x 21 cm",
         peso: "0.8 kg"
@@ -263,7 +263,7 @@ let libros = [
         estado: "Usado",
         ubicacion: "Librería Horizontes Lejanos",
         fecha_publicacion: "1961",
-        editorial: "Seix Barral",
+        editorial: "Emecé Editores",
         paginas: 456,
         dimensiones: "14 x 22 cm",
         peso: "0.9 kg"
@@ -281,7 +281,7 @@ let libros = [
         estado: "Usado",
         ubicacion: "Librería Luz y Sombra",
         fecha_publicacion: "1948",
-        editorial: "Sur",
+        editorial: "Emecé Editoresur",
         paginas: 160,
         dimensiones: "12 x 19 cm",
         peso: "0.4 kg"
@@ -299,7 +299,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería El Relato Oculto",
         fecha_publicacion: "1981",
-        editorial: "Sudamericana",
+        editorial: "Planeta",
         paginas: 144,
         dimensiones: "12 x 20 cm",
         peso: "0.4 kg"
@@ -353,7 +353,7 @@ let libros = [
         estado: "Usado",
         ubicacion: "Librería Recuerdos Fantásticos",
         fecha_publicacion: "2013",
-        editorial: "William Morrow",
+        editorial: "Planeta",
         paginas: 181,
         dimensiones: "14 x 21 cm",
         peso: "0.5 kg"
@@ -371,7 +371,7 @@ let libros = [
         estado: "Nuevo",
         ubicacion: "Librería Misterios Ocultos",
         fecha_publicacion: "2017",
-        editorial: "Ediciones B",
+        editorial: "Planeta",
         paginas: 304,
         dimensiones: "13 x 20 cm",
         peso: "0.6 kg"
@@ -402,10 +402,10 @@ let menunlibro=`ingrese los siguientes datos separados por , y los valores en ""
     menunlibro +="dimensiones\n"
     menunlibro +="peso\n\n"
 
-let salir="no"
-let option = parseInt(prompt(menuOpciones))
-let NuevoLibro
-let libroEliminado 
+//let salir="no"
+//let option = parseInt(prompt(menuOpciones))
+//let NuevoLibro
+//let libroEliminado 
 
 //do{
     //switch (option){
@@ -431,3 +431,121 @@ let libroEliminado
    // }
 
   //}while(salir=="no")
+
+
+const listaLibros = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    autor:libro.autor,
+    editorial:libro.editorial,
+  }
+})
+
+console.table(listaLibros)
+
+const listaLibros1 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    autor:libro.autor,
+    genero:libro.genero,
+  }
+})
+
+console.table(listaLibros1)
+
+const listaLibros2 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    precio:libro.precio,
+    formato:libro.formato
+  }
+})
+
+console.table(listaLibros2)
+
+const listaLibros3 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    estado:libro.estado,
+    precio:libro.precio
+  }
+})
+
+console.table(listaLibros3)
+
+const listaLibros4 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    ubicacion:libro.ubicacion,
+    formato:libro.formato
+  }
+})
+
+console.table(listaLibros4)
+
+const listaLibros5 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    formato:libro.formato,
+    fecha_publicacion:libro.fecha_publicacion
+  }
+})
+
+console.table(listaLibros5)
+
+const listaLibros6 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    formato:libro.formato,
+    fecha_publicacion:libro.fecha_publicacion
+  }
+})
+
+console.table(listaLibros6)
+
+const listaLibros7 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    ubicacion:libro.ubicacion,
+    isbn:libro.isbn
+  }
+})
+
+console.table(listaLibros7)
+
+const listaLibros8 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    ubicacion:libro.ubicacion,
+    idioma:libro.idioma
+  }
+}) 
+
+console.table(listaLibros8)
+
+const listaLibros9 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    autor:libro.autor,
+    descripcion:libro.descripcion
+  }
+})
+
+console.table(listaLibros9)
+
+const listaLibros10 = libros.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    ubicacion:libro.ubicacion,
+    isbn:libro.isbn
+  }
+})
+
+console.table(listaLibros10)
+
+
+
+
+
+
+
