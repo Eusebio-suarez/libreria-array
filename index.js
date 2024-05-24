@@ -23,7 +23,7 @@ let libros = [
         autor: "Gabriel García Márquez",
         genero: "Realismo mágico",
         idioma: "Español",
-        precio: "$15.000",
+        precio: 20,
         formato: "Tapa blanda",
         isbn: "978-84-376-0494-6",
         descripcion: "La saga familiar de los Buendía en Macondo, una obra maestra de la literatura latinoamericana.",
@@ -41,7 +41,7 @@ let libros = [
         autor: "George Orwell",
         genero: "Distopía",
         idioma: "Inglés",
-        precio: "$12.000",
+        precio: 50,
         formato: "Ebook",
         isbn: "978-0451524935",
         descripcion: "Una visión sombría del futuro donde el Gran Hermano todo lo ve.",
@@ -59,7 +59,7 @@ let libros = [
         autor: "Jane Austen",
         genero: "Romance",
         idioma: "Inglés",
-        precio: "$10.000",
+        precio: 10,
         formato: "Tapa blanda",
         isbn: "978-1503290567",
         descripcion: "Una comedia romántica sobre la sociedad inglesa del siglo XIX.",
@@ -77,7 +77,7 @@ let libros = [
         autor: "J.K. Rowling",
         genero: "Fantasía",
         idioma: "Español",
-        precio: "$18.000",
+        precio: 18,
         formato: "Tapa dura",
         isbn: "978-84-9838-177-0",
         descripcion: "El inicio de la saga del famoso mago Harry Potter en el mundo de la magia.",
@@ -95,7 +95,7 @@ let libros = [
         autor: "Patrick Rothfuss",
         genero: "Fantasía",
         idioma: "Español",
-        precio: "$28.000",
+        precio: 28,
         formato: "Tapa dura",
         isbn: "978-84-450-7579-0",
         descripcion: "La crónica de la vida de Kvothe, un joven mago legendario.",
@@ -113,7 +113,7 @@ let libros = [
         autor: "George Orwell ",
         genero: "Ficcion militar",
         idioma: "Español",
-        precio: "$22.000",
+        precio: 52,
         formato: "Tapa dura",
         isbn: "978-84-450-7479-0",
         descripcion: "La historia del levantamineto bolchevique",
@@ -131,7 +131,7 @@ let libros = [
         autor: "Galiet enoc ",
         genero: "Ficcion",
         idioma: "Español",
-        precio: "$80.000",
+        precio: 80,
         formato: "Tapa blanda",
         isbn: "978-8410059146",
         descripcion: "Andrés San Clemente fue secuestrado por las FARC.",
@@ -149,7 +149,7 @@ let libros = [
         autor: "Miguel de Cervantes",
         genero: "Novela",
         idioma: "Español",
-        precio: "$20.000",
+        precio: 20,
         formato: "Tapa dura",
         isbn: "978-84-376-0495-3",
         descripcion: "Las aventuras del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza.",
@@ -167,7 +167,7 @@ let libros = [
         autor: "Isabel Allende",
         genero: "Realismo mágico",
         idioma: "Español",
-        precio: "$18.000",
+        precio: 78,
         formato: "Tapa blanda",
         isbn: "978-84-376-0496-0",
         descripcion: "La saga de la familia Trueba en un país latinoamericano sin nombre.",
@@ -185,7 +185,7 @@ let libros = [
         autor: "Juan Rulfo",
         genero: "Novela",
         idioma: "Español",
-        precio: "$12.000",
+        precio: 12,
         formato: "Tapa blanda",
         isbn: "978-84-376-0497-7",
         descripcion: "Una historia de realismo mágico en el pueblo mexicano de Comala.",
@@ -203,7 +203,7 @@ let libros = [
         autor: "Julio Cortázar",
         genero: "Novela",
         idioma: "Español",
-        precio: "$17.000",
+        precio: 78,
         formato: "Tapa blanda",
         isbn: "978-84-376-0498-4",
         descripcion: "Una novela experimental que se puede leer de múltiples maneras.",
@@ -221,7 +221,7 @@ let libros = [
         autor: "Jorge Luis Borges",
         genero: "Cuentos",
         idioma: "Español",
-        precio: "$14.000",
+        precio: 14,
         formato: "Tapa blanda",
         isbn: "978-84-376-0499-1",
         descripcion: "Una colección de cuentos que exploran laberintos, bibliotecas y espejos.",
@@ -239,7 +239,7 @@ let libros = [
         autor: "Gabriel García Márquez",
         genero: "Novela",
         idioma: "Español",
-        precio: "$16.000",
+        precio: 16,
         formato: "Tapa dura",
         isbn: "978-84-376-0500-4",
         descripcion: "La historia de amor entre Fermina Daza y Florentino Ariza.",
@@ -257,7 +257,7 @@ let libros = [
         autor: "Ernesto Sabato",
         genero: "Novela",
         idioma: "Español",
-        precio: "$13.000",
+        precio: 13,
         formato: "Tapa blanda",
         isbn: "978-84-376-0501-1",
         descripcion: "Una profunda exploración del alma humana y la historia argentina.",
@@ -275,7 +275,7 @@ let libros = [
         autor: "Ernesto Sabato",
         genero: "Novela",
         idioma: "Español",
-        precio: "$10.000",
+        precio: 100,
         formato: "Tapa blanda",
         isbn: "978-84-376-0502-8",
         descripcion: "La historia de un pintor obsesionado con una mujer a quien asesina.",
@@ -293,7 +293,7 @@ let libros = [
         autor: "Gabriel García Márquez",
         genero: "Novela",
         idioma: "Español",
-        precio: "$14.000",
+        precio: 64,
         formato: "Tapa blanda",
         isbn: "978-84-376-0503-5",
         descripcion: "Una novela que narra el asesinato de Santiago Nasar en un pequeño pueblo.",
@@ -311,7 +311,7 @@ let libros = [
         autor: "Carlos Ruiz Zafón",
         genero: "Misterio",
         idioma: "Español",
-        precio: "$12.000",
+        precio: 12,
         formato: "Tapa blanda",
         isbn: "978-84-233-3332-6",
         descripcion: "Un joven descubre un misterioso libro que cambiará su vida para siempre.",
@@ -329,7 +329,7 @@ let libros = [
         autor: "María Dueñas",
         genero: "Histórico",
         idioma: "Español",
-        precio: "$18.000",
+        precio: 18,
         formato: "Tapa dura",
         isbn: "978-84-233-5417-8",
         descripcion: "La historia de tres hermanas españolas que emigran a Nueva York en los años 30.",
@@ -347,7 +347,7 @@ let libros = [
         autor: "Neil Gaiman",
         genero: "Fantasía",
         idioma: "Inglés",
-        precio: "$16.000",
+        precio: 30,
         formato: "Tapa blanda",
         isbn: "978-0-06-225565-5",
         descripcion: "Un hombre regresa a su hogar de la infancia y recuerda extraños eventos de su niñez.",
@@ -365,7 +365,7 @@ let libros = [
         autor: "E.O. Chirovici",
         genero: "Thriller",
         idioma: "Español",
-        precio: "$14.000",
+        precio: 14,
         formato: "Tapa blanda",
         isbn: "978-84-670-4914-4",
         descripcion: "Un manuscrito incompleto desvela un asesinato ocurrido hace décadas.",
@@ -569,6 +569,33 @@ const listaConDescuento = librosConDescuento.map(libro=>{
 })
 
 console.table(listaConDescuento)
+
+//Manejo de Array methods Filter()
+
+
+const librosCaros = libros.filter((libro) => {
+    return libro.precio > 50
+})
+
+console.table(librosCaros)
+
+
+const librosCarosOrdenados = libros.sort((a,b) =>  b.paginas-a.paginas)
+.map((titulo) => {
+  return{
+    titulo:titulo.titulo,
+    autor:titulo.autor,
+    editorial:titulo.editorial,
+    pagina:titulo.paginas
+  }
+})
+
+console.table(librosCarosOrdenados)
+
+
+
+
+
 
 
 
