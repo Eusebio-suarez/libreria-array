@@ -121,7 +121,7 @@ let libros = [
         ubicacion: "Librería de la Universidad",
         fecha_publicacion: "1945",
         editorial: "letra minuscula",
-        paginas: 135,
+        paginas: 90,
         dimensiones: "20 x 30 cm",
         peso: "0.5 kg"
     },
@@ -193,7 +193,7 @@ let libros = [
         ubicacion: "Librería Voces de Papel",
         fecha_publicacion: "1955",
         editorial: "letra minuscula",
-        paginas: 124,
+        paginas: 87,
         dimensiones: "12 x 19 cm",
         peso: "0.4 kg"
       },
@@ -301,7 +301,7 @@ let libros = [
         ubicacion: "Librería El Relato Oculto",
         fecha_publicacion: "1981",
         editorial: "Planeta",
-        paginas: 144,
+        paginas: 54,
         dimensiones: "12 x 20 cm",
         peso: "0.4 kg"
       },
@@ -603,6 +603,79 @@ const librosOrdenados= libros.sort((a,b) =>  b.paginas-a.paginas)
 })
 
 console.table(librosOrdenados)
+
+//Manejo Array Methods encadenados.
+
+const librosCaross = libros.filter((libro) => {
+  return libro.precio > 11 })
+  .map((titulo) => {
+    return{
+      titulo:titulo.titulo,
+      autor:titulo.autor,
+      precio:titulo.precio,
+    }
+  })  
+
+console.table(librosCaross)
+
+const librosMenosde100 = libros.filter((libro) => {
+  return libro.paginas < 100 })
+  .map((paginas) => {
+    return{
+      titulo:paginas.titulo,
+      autor:paginas.autor,
+      editorial:paginas.editorial,
+      paginas:paginas.paginas,
+    }
+  }) 
+
+  console.table(librosMenosde100)
+
+  const librosMayores20 = libros.filter((libro) => {
+    return libro.precio > 20 })
+    .map((titulo) => {
+      return{
+        titulo:titulo.titulo,
+        autor:titulo.autor,
+        precio:titulo.precio,
+      }
+    })  
+    .sort((a,b) =>b.precio-a.precio)
+
+    console.table(librosMayores20)
+
+  const libroMayorpagina=libros.sort((a,b) => b.paginas-a.paginas)
+  .map((paginas) => {
+    return{
+      titulo:paginas.titulo,
+      autor:paginas.autor,
+      editorial:paginas.editorial,
+      paginas:paginas.paginas,
+    }
+  })
+
+  console.table(libroMayorpagina)
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
