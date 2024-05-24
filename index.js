@@ -586,11 +586,29 @@ const librosCarosOrdenados = libros.sort((a,b) =>  b.paginas-a.paginas)
     titulo:titulo.titulo,
     autor:titulo.autor,
     editorial:titulo.editorial,
-    pagina:titulo.paginas
+    paginas:titulo.paginas
   }
 })
 
 console.table(librosCarosOrdenados)
+
+//Manejo de Array methods sort()
+
+const librosOrdenados= libros.sort((a,b) =>  b.paginas-a.paginas)
+.map((paginas) => {
+  return{
+    titulo:paginas.titulo,
+    paginas:paginas.paginas
+  }
+})
+
+console.table(librosOrdenados)
+
+
+
+
+
+
 
 
 
