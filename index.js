@@ -13,7 +13,8 @@ fecha_publicacion: "fecha",
 editorial: "editorial",
 paginas: "número",
 dimensiones: "dimensiones físicas",
-peso: "peso "
+peso: "peso ",
+descuento: 20
 }
 
 let libros = [
@@ -147,8 +148,8 @@ let libros = [
         titulo: "Don Quijote de la Mancha",
         autor: "Miguel de Cervantes",
         genero: "Novela",
-        dioma: "Español",
-        recio: "$20.000",
+        idioma: "Español",
+        precio: "$20.000",
         formato: "Tapa dura",
         isbn: "978-84-376-0495-3",
         descripcion: "Las aventuras del ingenioso hidalgo Don Quijote y su fiel escudero Sancho Panza.",
@@ -198,7 +199,7 @@ let libros = [
       },
 
       {
-        itulo: "Rayuela",
+        titulo: "Rayuela",
         autor: "Julio Cortázar",
         genero: "Novela",
         idioma: "Español",
@@ -210,7 +211,7 @@ let libros = [
         ubicacion: "Librería La Lectura Infinita",
         fecha_publicacion: "1963",
         editorial: "Emecé Editores",
-        paginas: 736,
+        paginas: 700,
         dimensiones: "13 x 20 cm",
         peso: "1.0 kg"
       },
@@ -438,6 +439,7 @@ const listaLibros = libros.map(libro=>{
     titulo:libro.titulo,
     autor:libro.autor,
     editorial:libro.editorial,
+    precio:libro.precio
   }
 })
 
@@ -542,6 +544,38 @@ const listaLibros10 = libros.map(libro=>{
 })
 
 console.table(listaLibros10)
+
+
+//Manejo de Array Methods + spreed operator.
+
+
+const librosConDescuento=libros.map(libro=>{
+  return{
+    ...libro,
+    descuento: 20,
+  }
+})
+
+console.log(librosConDescuento)
+
+const listaConDescuento = librosConDescuento.map(libro=>{
+  return{
+    titulo:libro.titulo,
+    autor:libro.autor,
+    editorial:libro.editorial,
+    precio:libro.precio,
+    descuento:libro.descuento
+  }
+})
+
+console.table(listaConDescuento)
+
+
+
+
+
+
+
 
 
 
