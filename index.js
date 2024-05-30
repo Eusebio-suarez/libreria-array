@@ -381,7 +381,7 @@ let libros = [
   ];
 
 function agregarLibroALaPila(libro) {
-    pilaDeLibros.push(libro);
+    libros.push(libro);
 }
 
 let menu="Menú:\n\n";
@@ -390,7 +390,7 @@ let menu="Menú:\n\n";
     menu+="3. Mostrar la pila actual de libros\n";
     menu+="4. listar libros\n"
     menu+="5. resumenes de libros\n"
-    menu+="Seleccione una opción (1-3):\n";
+    menu+="Seleccione una opción (1-5):\n";
 
 let menulistar="listar libros\n\n"
     menulistar+="1.listar por titulo,autor,editorial,\n"
@@ -416,7 +416,177 @@ let menuresumenes="resumir libros\n"
     menuresumenes+="5.menos de 100 paginas resumirlos por titulo, autor, editorial y paginas.\n"
     menuresumenes+="6.mayores a 20 dolares de mayor a menor resumirlos por titulo, autor, precio.\n"
     menuresumenes+="7. por numero mas alto de paginas resumirlos por titulo, autor, editorial, paginas ordenados de mayor a menor.\n"
-    menuresumenes+="Seleccione una opción (1-3):\n";
+    menuresumenes+="Seleccione una opción (1-7):\n";
+
+
+const listaLibros = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        autor:libro.autor,
+        editorial:libro.editorial,
+        precio:libro.precio
+      }
+    })
+const listaLibros1 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        autor:libro.autor,
+        genero:libro.genero,
+      }
+    })
+    const listaLibros2 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        precio:libro.precio,
+        formato:libro.formato
+      }
+    })
+    const listaLibros3 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        estado:libro.estado,
+        precio:libro.precio
+      }
+    })
+    const listaLibros4 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        ubicacion:libro.ubicacion,
+        formato:libro.formato
+      }
+    })
+    const listaLibros5 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        formato:libro.formato,
+        fecha_publicacion:libro.fecha_publicacion
+      }
+    })
+    const listaLibros6 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        formato:libro.formato,
+        precio:libro.precio
+      }
+    })
+    const listaLibros7 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        ubicacion:libro.ubicacion,
+        isbn:libro.isbn
+      }
+    })
+    const listaLibros8 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        ubicacion:libro.ubicacion,
+        idioma:libro.idioma
+      }
+    }) 
+    const listaLibros9 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        autor:libro.autor,
+        descripcion:libro.descripcion
+      }
+    })
+    const listaLibros10 = libros.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        ubicacion:libro.ubicacion,
+        isbn:libro.isbn
+      }
+    })
+    
+    //Manejo de Array Methods + spreed operator.
+    
+    const librosConDescuento=libros.map(libro=>{
+      return{
+        ...libro,
+        descuento: 20,
+      }
+    })
+    const listaConDescuento = librosConDescuento.map(libro=>{
+      return{
+        titulo:libro.titulo,
+        autor:libro.autor,
+        editorial:libro.editorial,
+        precio:libro.precio,
+        descuento:libro.descuento
+      }
+    })
+    
+    //Manejo de Array methods Filter()
+    const librosCaros = libros.filter((libro) => {
+        return libro.precio > 50
+    })
+    const librosCarosOrdenados = libros.sort((a,b) =>  b.paginas-a.paginas)
+    .map((titulo) => {
+      return{
+        titulo:titulo.titulo,
+        autor:titulo.autor,
+        editorial:titulo.editorial,
+        paginas:titulo.paginas
+      }
+    })
+    
+    //Manejo de Array methods sort()
+    
+    const librosOrdenados= libros.sort((a,b) =>  b.paginas-a.paginas)
+    .map((paginas) => {
+      return{
+        titulo:paginas.titulo,
+        paginas:paginas.paginas
+      }
+    })
+    
+    //Manejo Array Methods encadenados.
+    const librosCaross = libros.filter((libro) => {
+      return libro.precio > 11 })
+      .map((titulo) => {
+        return{
+          titulo:titulo.titulo,
+          autor:titulo.autor,
+          precio:titulo.precio,
+        }
+      })  
+    
+    
+    const librosMenosde100 = libros.filter((libro) => {
+      return libro.paginas < 100 })
+      .map((paginas) => {
+        return{
+          titulo:paginas.titulo,
+          autor:paginas.autor,
+          editorial:paginas.editorial,
+          paginas:paginas.paginas,
+        }
+      }) 
+    
+    
+      const librosMayores20 = libros.filter((libro) => {
+        return libro.precio > 20 })
+        .map((titulo) => {
+          return{
+            titulo:titulo.titulo,
+            autor:titulo.autor,
+            precio:titulo.precio,
+          }
+        })  
+        .sort((a,b) =>b.precio-a.precio)
+    
+       
+    
+      const libroMayorpagina=libros.sort((a,b) => b.paginas-a.paginas)
+      .map((paginas) => {
+        return{
+          titulo:paginas.titulo,
+          autor:paginas.autor,
+          editorial:paginas.editorial,
+          paginas:paginas.paginas,
+        }
+      })
+    
 let libroeliminado
 let opcionresumenes
 let opcion;
@@ -438,7 +608,7 @@ while (opcion !== "si") {
             let editorial = prompt("ingrese la editorial del libro")
             let paginas = prompt("ingrese el numero de paginas del libro")
             let dimensiones = prompt("ingrese las dimenciones del libro")
-            let peso = prompt("ingrese el idioma del libro")
+            let peso = prompt("ingrese el peso del libro")
 
             let nuevoLibro = {titulo: titulo, autor: autor, genero: genero, idioma: idioma, precio: parseInt(precio),
               formato: formato, isbn: isbn, descripcion: descripcion, estado: estado, ubicacion: ubicacion,
@@ -449,12 +619,12 @@ while (opcion !== "si") {
             opcion=prompt("desea salir? escriba si/no")
             break;
         case "2":
-            libroeliminado=pilaDeLibros.pop()
+            libroeliminado=libros.pop()
             console.log("Libro eliminado de la pila:",libroeliminado);
             opcion=prompt("desea salir? escriba si/no")
             break;
         case "3":
-            console.log(pilaDeLibros)
+            console.log(libros)
             opcion=prompt("desea salir? escriba si/no")
             break;
         case "4":
@@ -549,177 +719,6 @@ while (opcion !== "si") {
             break;}
 }
 
-const listaLibros = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    autor:libro.autor,
-    editorial:libro.editorial,
-    precio:libro.precio
-  }
-})
-const listaLibros1 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    autor:libro.autor,
-    genero:libro.genero,
-  }
-})
-const listaLibros2 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    precio:libro.precio,
-    formato:libro.formato
-  }
-})
-const listaLibros3 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    estado:libro.estado,
-    precio:libro.precio
-  }
-})
-const listaLibros4 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    ubicacion:libro.ubicacion,
-    formato:libro.formato
-  }
-})
-const listaLibros5 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    formato:libro.formato,
-    fecha_publicacion:libro.fecha_publicacion
-  }
-})
-const listaLibros6 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    formato:libro.formato,
-    precio:libro.precio
-  }
-})
-const listaLibros7 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    ubicacion:libro.ubicacion,
-    isbn:libro.isbn
-  }
-})
-const listaLibros8 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    ubicacion:libro.ubicacion,
-    idioma:libro.idioma
-  }
-}) 
-const listaLibros9 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    autor:libro.autor,
-    descripcion:libro.descripcion
-  }
-})
-const listaLibros10 = libros.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    ubicacion:libro.ubicacion,
-    isbn:libro.isbn
-  }
-})
-
-//Manejo de Array Methods + spreed operator.
-
-const librosConDescuento=libros.map(libro=>{
-  return{
-    ...libro,
-    descuento: 20,
-  }
-})
-const listaConDescuento = librosConDescuento.map(libro=>{
-  return{
-    titulo:libro.titulo,
-    autor:libro.autor,
-    editorial:libro.editorial,
-    precio:libro.precio,
-    descuento:libro.descuento
-  }
-})
-
-//Manejo de Array methods Filter()
-const librosCaros = libros.filter((libro) => {
-    return libro.precio > 50
-})
-const librosCarosOrdenados = libros.sort((a,b) =>  b.paginas-a.paginas)
-.map((titulo) => {
-  return{
-    titulo:titulo.titulo,
-    autor:titulo.autor,
-    editorial:titulo.editorial,
-    paginas:titulo.paginas
-  }
-})
-
-//Manejo de Array methods sort()
-
-const librosOrdenados= libros.sort((a,b) =>  b.paginas-a.paginas)
-.map((paginas) => {
-  return{
-    titulo:paginas.titulo,
-    paginas:paginas.paginas
-  }
-})
-
-//Manejo Array Methods encadenados.
-const librosCaross = libros.filter((libro) => {
-  return libro.precio > 11 })
-  .map((titulo) => {
-    return{
-      titulo:titulo.titulo,
-      autor:titulo.autor,
-      precio:titulo.precio,
-    }
-  })  
-
-
-const librosMenosde100 = libros.filter((libro) => {
-  return libro.paginas < 100 })
-  .map((paginas) => {
-    return{
-      titulo:paginas.titulo,
-      autor:paginas.autor,
-      editorial:paginas.editorial,
-      paginas:paginas.paginas,
-    }
-  }) 
-
-  console.table(librosMenosde100)
-
-  const librosMayores20 = libros.filter((libro) => {
-    return libro.precio > 20 })
-    .map((titulo) => {
-      return{
-        titulo:titulo.titulo,
-        autor:titulo.autor,
-        precio:titulo.precio,
-      }
-    })  
-    .sort((a,b) =>b.precio-a.precio)
-
-   
-
-  const libroMayorpagina=libros.sort((a,b) => b.paginas-a.paginas)
-  .map((paginas) => {
-    return{
-      titulo:paginas.titulo,
-      autor:paginas.autor,
-      editorial:paginas.editorial,
-      paginas:paginas.paginas,
-    }
-  })
-
-  console.table(libroMayorpagina)
-  
 
 
 
