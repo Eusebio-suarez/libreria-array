@@ -379,60 +379,175 @@ let libros = [
       }
 
   ];
-let menuOpciones = "PILA DE LIBROS\n\n"
-    menuOpciones += " 1 . Agregar un libro encima de la pila\n"
-    menuOpciones += " 2 . Quitar un libro de encima de la Pila\n"
-    menuOpciones += " 3 . Ver la pila de libros Actual\n"
-    menuOpciones += " 4 . Salir del menu de Opciones\n\n"
-    menuOpciones += " Ingrese  el numero de la opcion a Realizar"
 
-let menunlibro=`ingrese los siguientes datos separados por , y los valores en ""\n\n`
-    menunlibro +="titulo\n"
-    menunlibro +="auto\n"
-    menunlibro +="genero\n"
-    menunlibro +="idioma\n"
-    menunlibro +="precio\n"
-    menunlibro +="formato\n"
-    menunlibro +="isbn\n"
-    menunlibro +="descripcion\n"
-    menunlibro +="estado\n"
-    menunlibro +="ubicacion\n"
-    menunlibro +="fecha_publicacion\n"
-    menunlibro +="editorial\n"
-    menunlibro +="paginas\n"
-    menunlibro +="dimensiones\n"
-    menunlibro +="peso\n\n"
+function agregarLibroALaPila(libro) {
+    pilaDeLibros.push(libro);
+}
 
-//let salir="no"
-//let option = parseInt(prompt(menuOpciones))
-//let NuevoLibro
-//let libroEliminado 
+let menu="Menú:\n\n";
+    menu+="1. Agregar un libro\n"
+    menu+="2. Quitar el libro de encima de la pila\n";
+    menu+="3. Mostrar la pila actual de libros\n";
+    menu+="4. listar libros\n"
+    menu+="5. resumenes de libros\n"
+    menu+="Seleccione una opción (1-3):\n";
 
-//do{
-    //switch (option){
+let menulistar="listar libros\n\n"
+    menulistar+="1.listar por titulo,autor,editorial,\n"
+    menulistar+="2.listar por titulo,autor,genero,\n"
+    menulistar+="3.listar por titulo,precio,formato,\n"
+    menulistar+="4.listar por titulo,estado,precio,\n"
+    menulistar+="5.listar por titulo,ubicacion,formato,\n"
+    menulistar+="6.listar por titulo,formato,fecha_publicacion,\n"
+    menulistar+="7.listar por titulo,formato,precio,\n"
+    menulistar+="8.listar por titulo,ubicacion,isbn,\n"
+    menulistar+="9.listar por titulo,ubicacion,idioma,\n"
+    menulistar+="10.listar por titulo,autor,descripcion,\n"
+    menulistar+="11.listar por titulo,ubicacion,isbn,\n" 
+    menulistar+="12.listar libros con descuento\n"  
+    menulistar+="13.listar libros por titulo, Autor, Editorial, Precio y descuento\n"
+    menulistar+="Seleccione una opción (1-13):\n";
 
-        //case 1:
-            //NuevoLibro= prompt(menunlibro)
-            //libros.push(NuevoLibro)
-            //console.log(NuevoLibro)
-       // break
-    
-        //case 2: 
-            //libroEliminado=libros.pop()
-            //console.log(`El libro fue eliminado`)
-        //break
-    
-        //case 3:
-            //console.log(libros)
-        //break
-    
-        //case 4:
-            //salir="si"
-        //break
-   // }
+let menuresumenes="resumir libros\n"
+    menuresumenes+="1.libros mayores a 50 dolares\n"
+    menuresumenes+="2.resumen de libros por titulo,autor,editorial,paginas mayor nomero de paginas\n"
+    menuresumenes+="3.Ordenar los libros por numero de paginas de mayor a menor\n"
+    menuresumenes+="4.por titulo mayores de 11 dolares, resumirlos por titulo, autor, precio.\n"
+    menuresumenes+="5.menos de 100 paginas resumirlos por titulo, autor, editorial y paginas.\n"
+    menuresumenes+="6.mayores a 20 dolares de mayor a menor resumirlos por titulo, autor, precio.\n"
+    menuresumenes+="7. por numero mas alto de paginas resumirlos por titulo, autor, editorial, paginas ordenados de mayor a menor.\n"
+    menuresumenes+="Seleccione una opción (1-3):\n";
+let libroeliminado
+let opcionresumenes
+let opcion;
+while (opcion !== "si") {
+    opcion = prompt(menu);
+    switch (opcion) {
+        case "1":
+            let titulo = prompt("Ingrese el título del libro:");
+            let autor = prompt("Ingrese el autor del libro:");
+            let genero = prompt("ingrese el genero del libro")
+            let idioma = prompt("ingrese el idioma del libro")
+            let precio = prompt("ingrese el precio del libro")
+            let formato = prompt("ingrese el formato del libro")
+            let isbn = prompt("ingrese el numero de isbn del libro")
+            let descripcion = prompt("ingrese el idioma del libro")
+            let estado = prompt("ingrese el estado del libro")
+            let ubicacion = prompt("ingrese la ubicacion del libro")
+            let fecha_publicacion = prompt("ingrese el año de publicacion del libro")
+            let editorial = prompt("ingrese la editorial del libro")
+            let paginas = prompt("ingrese el numero de paginas del libro")
+            let dimensiones = prompt("ingrese las dimenciones del libro")
+            let peso = prompt("ingrese el idioma del libro")
 
-  //}while(salir=="no")
-
+            let nuevoLibro = {titulo: titulo, autor: autor, genero: genero, idioma: idioma, precio: parseInt(precio),
+              formato: formato, isbn: isbn, descripcion: descripcion, estado: estado, ubicacion: ubicacion,
+              fecha_publicacion: fecha_publicacion, editorial: editorial, paginas: parseInt(paginas),
+              dimensiones: dimensiones, peso: peso};
+            agregarLibroALaPila(nuevoLibro);
+            console.log("Libro agregado a la pila:",nuevoLibro);
+            opcion=prompt("desea salir? escriba si/no")
+            break;
+        case "2":
+            libroeliminado=pilaDeLibros.pop()
+            console.log("Libro eliminado de la pila:",libroeliminado);
+            opcion=prompt("desea salir? escriba si/no")
+            break;
+        case "3":
+            console.log(pilaDeLibros)
+            opcion=prompt("desea salir? escriba si/no")
+            break;
+        case "4":
+            let opcionlistar=prompt(menulistar)
+            switch (opcionlistar){
+                case "1":
+                console.table(listaLibros)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "2":
+                console.table(listaLibros1)
+                opcion=prompt("desea salir? escriba si/no")
+                    break  
+                case "3":
+                console.table(listaLibros2)
+                opcion=prompt("desea salir? escriba si/no")
+                    break  
+                case "4":
+                console.table(listaLibros3)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "5":
+                console.table(listaLibros4)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "6":
+                console.table(listaLibros5)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "7":
+                console.table(listaLibros6)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "8":
+                console.table(listaLibros7)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "9":
+                console.table(listaLibros8)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "10":
+                console.table(listaLibros9)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "11":
+                console.table(listaLibros10)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "12":
+                console.table(librosConDescuento)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                case "13":
+                console.table(listaConDescuento)
+                opcion=prompt("desea salir? escriba si/no")
+                    break
+                }
+            break
+        case "5":
+            opcionresumenes=prompt(menuresumenes)
+            switch(opcionresumenes){
+            case "1":
+              console.table(librosCaros)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case "2":
+              console.table(librosCarosOrdenados)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"3":
+              console.table(librosOrdenados)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"4":
+              console.table(librosCaross)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"5":
+              console.table(librosMenosde100)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"6":
+              console.table(librosMayores20)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"7":
+              console.table(libroMayorpagina)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            }
+            break;}
+}
 
 const listaLibros = libros.map(libro=>{
   return{
@@ -442,9 +557,6 @@ const listaLibros = libros.map(libro=>{
     precio:libro.precio
   }
 })
-
-console.table(listaLibros)
-
 const listaLibros1 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -452,9 +564,6 @@ const listaLibros1 = libros.map(libro=>{
     genero:libro.genero,
   }
 })
-
-console.table(listaLibros1)
-
 const listaLibros2 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -462,9 +571,6 @@ const listaLibros2 = libros.map(libro=>{
     formato:libro.formato
   }
 })
-
-console.table(listaLibros2)
-
 const listaLibros3 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -472,9 +578,6 @@ const listaLibros3 = libros.map(libro=>{
     precio:libro.precio
   }
 })
-
-console.table(listaLibros3)
-
 const listaLibros4 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -482,9 +585,6 @@ const listaLibros4 = libros.map(libro=>{
     formato:libro.formato
   }
 })
-
-console.table(listaLibros4)
-
 const listaLibros5 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -492,19 +592,13 @@ const listaLibros5 = libros.map(libro=>{
     fecha_publicacion:libro.fecha_publicacion
   }
 })
-
-console.table(listaLibros5)
-
 const listaLibros6 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
     formato:libro.formato,
-    fecha_publicacion:libro.fecha_publicacion
+    precio:libro.precio
   }
 })
-
-console.table(listaLibros6)
-
 const listaLibros7 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -512,9 +606,6 @@ const listaLibros7 = libros.map(libro=>{
     isbn:libro.isbn
   }
 })
-
-console.table(listaLibros7)
-
 const listaLibros8 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -522,9 +613,6 @@ const listaLibros8 = libros.map(libro=>{
     idioma:libro.idioma
   }
 }) 
-
-console.table(listaLibros8)
-
 const listaLibros9 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -532,9 +620,6 @@ const listaLibros9 = libros.map(libro=>{
     descripcion:libro.descripcion
   }
 })
-
-console.table(listaLibros9)
-
 const listaLibros10 = libros.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -543,11 +628,7 @@ const listaLibros10 = libros.map(libro=>{
   }
 })
 
-console.table(listaLibros10)
-
-
 //Manejo de Array Methods + spreed operator.
-
 
 const librosConDescuento=libros.map(libro=>{
   return{
@@ -555,9 +636,6 @@ const librosConDescuento=libros.map(libro=>{
     descuento: 20,
   }
 })
-
-console.log(librosConDescuento)
-
 const listaConDescuento = librosConDescuento.map(libro=>{
   return{
     titulo:libro.titulo,
@@ -568,18 +646,10 @@ const listaConDescuento = librosConDescuento.map(libro=>{
   }
 })
 
-console.table(listaConDescuento)
-
 //Manejo de Array methods Filter()
-
-
 const librosCaros = libros.filter((libro) => {
     return libro.precio > 50
 })
-
-console.table(librosCaros)
-
-
 const librosCarosOrdenados = libros.sort((a,b) =>  b.paginas-a.paginas)
 .map((titulo) => {
   return{
@@ -589,8 +659,6 @@ const librosCarosOrdenados = libros.sort((a,b) =>  b.paginas-a.paginas)
     paginas:titulo.paginas
   }
 })
-
-console.table(librosCarosOrdenados)
 
 //Manejo de Array methods sort()
 
@@ -602,10 +670,7 @@ const librosOrdenados= libros.sort((a,b) =>  b.paginas-a.paginas)
   }
 })
 
-console.table(librosOrdenados)
-
 //Manejo Array Methods encadenados.
-
 const librosCaross = libros.filter((libro) => {
   return libro.precio > 11 })
   .map((titulo) => {
@@ -616,7 +681,6 @@ const librosCaross = libros.filter((libro) => {
     }
   })  
 
-console.table(librosCaross)
 
 const librosMenosde100 = libros.filter((libro) => {
   return libro.paginas < 100 })
@@ -642,7 +706,7 @@ const librosMenosde100 = libros.filter((libro) => {
     })  
     .sort((a,b) =>b.precio-a.precio)
 
-    console.table(librosMayores20)
+   
 
   const libroMayorpagina=libros.sort((a,b) => b.paginas-a.paginas)
   .map((paginas) => {
