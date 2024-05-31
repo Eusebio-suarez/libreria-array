@@ -390,7 +390,8 @@ let menu="Menú:\n\n";
     menu+="3. Mostrar la pila actual de libros\n";
     menu+="4. listar libros\n"
     menu+="5. resumenes de libros\n"
-    menu+="Seleccione una opción (1-5):\n";
+    menu+="6. buscar libros\n"
+    menu+="Seleccione una opción (1-6):\n";
 
 let menulistar="listar libros\n\n"
     menulistar+="1.listar por titulo,autor,editorial,\n"
@@ -417,6 +418,24 @@ let menuresumenes="resumir libros\n"
     menuresumenes+="6.mayores a 20 dolares de mayor a menor resumirlos por titulo, autor, precio.\n"
     menuresumenes+="7. por numero mas alto de paginas resumirlos por titulo, autor, editorial, paginas ordenados de mayor a menor.\n"
     menuresumenes+="Seleccione una opción (1-7):\n";
+
+let menuBuscar="Buscar libros\n\n"
+    menuBuscar+="1.buscar por titulo\n"     
+    menuBuscar+="2.buscar por autor\n"
+    menuBuscar+="3.buscar por fecha de publicacion\n"
+    menuBuscar+="4.buscar por genero\n"
+    menuBuscar+="5.buscar por idioma\n"
+    menuBuscar+="6.buscar por precio\n" 
+    menuBuscar+="7.buscar por formato\n"       
+    menuBuscar+="8.buscar por numero de ISBN\n"    
+    menuBuscar+="9.buscar por descripcion\n"    
+    menuBuscar+="10.buscar por ubicacion\n"    
+    menuBuscar+="11.buscar por estado\n"    
+    menuBuscar+="12.buscar por editorial\n"                    
+    menuBuscar+="13.buscar por #paginas\n"    
+    menuBuscar+="14.buscar por peso\n"    
+    menuBuscar+="15.buscar por dimenciones\n"
+    menuBuscar+="Seleccione una opcion (1-15):\n"        
 
 
 const listaLibros = libros.map(libro=>{
@@ -586,8 +605,94 @@ const listaLibros1 = libros.map(libro=>{
           paginas:paginas.paginas,
         }
       })
+
+      //Manejo de Array methods find()
+      let tituloBuscar
+      let buscartitulo = libros.find((libro) => {
+        return libro.titulo == tituloBuscar;
+      });
+
+      let autorBuscar
+      let buscarautor = libros.find((libro) => {
+        return libro.autor == autorBuscar ;
+      });
+
+      
+      let fechaBuscar
+      let buscarfecha = libros.find((libro) => {
+        return libro.fecha_publicacion == fechaBuscar ;
+      });
+
+      let generoBuscar
+      let buscargenero = libros.find((libro) => {
+        return libro.genero == generoBuscar ;
+      });
+
+      let idiomaBuscar
+      let buscaridioma = libros.find((libro) => {
+        return libro.genero == idiomaBuscar ;
+      });
+
+      let precioBuscar
+      let buscarprecio = libros.find((libro) => {
+        return libro.precio == precioBuscar ;
+      });
+
+      let formatoBuscar
+      let buscarformato = libros.find((libro) => {
+        return libro.formato == formatoBuscar ;
+      });
+
+      let isbnBuscar
+      let buscarISBN = libros.find((libro) => {
+        return libro.formato == isbnBuscar ;
+      });
+
+      let descripcionBuscar
+      let buscardescripcion= libros.find((libro) => {
+        return libro.descripcion == descripcionBuscar ;
+      });
+
+      let ubicacionBuscar
+      let buscarubicacion= libros.find((libro) => {
+        return libro.ubicacion == ubicacionBuscar;
+      });
+
+      let estadoBuscar
+      let buscarestado= libros.find((libro) => {
+        return libro.estado == estadoBuscar;
+      });
+
+      let editorialBuscar
+      let buscareditorial= libros.find((libro) => {
+        return libro.editorial == editorialBuscar;
+      });
+      
+      let paginasBuscar
+      let buscarpaginas= libros.find((libro) => {
+        return libro.paginas == paginasBuscar;
+      });
+
+      let pesoBuscar
+      let buscarpeso= libros.find((libro) => {
+        return libro.peso == pesoBuscar;
+      });
+
+      let dimencionesBuscar
+      let buscardimenciones= libros.find((libro) => {
+        return libro.dimensiones == dimencionesBuscar;
+      });
+
+
+
+      
+
+
+
+      
     
 let libroeliminado
+let opcionbuscar
 let opcionresumenes
 let opcion;
 while (opcion !== "si") {
@@ -715,8 +820,134 @@ while (opcion !== "si") {
               console.table(libroMayorpagina)
               opcion=prompt("desea salir? escriba si/no")
               break
+            }    
+            break;
+        case "6":
+            opcionbuscar=prompt(menuBuscar)
+            switch(opcionbuscar){
+            case "1":
+              let tituloBuscar=prompt("ingrese el titulo del libro a buscar")
+              let buscartitulo = libros.find((libro) => {
+                return libro.titulo === tituloBuscar;
+              });
+              console.table(buscartitulo)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"2":
+            let autorBuscar=prompt("ingrese el autor del libro")
+            buscarautor = libros.find((libro) => {
+              return libro.autor == autorBuscar ;
+            });
+              console.table(buscarautor)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case "3":  
+              let fechaBuscar=prompt("ingrese el año de publicacion a buscar")
+              buscarfecha = libros.find((libro) => {
+                return libro.fecha_publicacion == fechaBuscar ;
+              });
+              console.table(buscarfecha)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case "4":
+              let generoBuscar=prompt("ingrese el genero del libro a buscar")
+              buscargenero = libros.find((libro) => {
+                return libro.genero == generoBuscar ;
+              });
+              console.table(buscargenero)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case "5":
+              let idiomaBuscar=prompt("ingrese el idioma del libro a buscar")
+              buscaridioma = libros.find((libro) => {
+                return libro.idioma == idiomaBuscar ;
+              });
+              console.table(buscaridioma)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"6":  
+              let precioBuscar=prompt("ingrese el precio del libro a buscar")
+              buscarprecio = libros.find((libro) => {
+                return libro.precio == precioBuscar ;
+              });
+              console.table(buscarprecio)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case "7":
+              let formatoBuscar=prompt("ingrese el formato del libro a buscar")
+              buscarformato = libros.find((libro) => {
+                return libro.formato == formatoBuscar ;
+              });
+              console.table(buscarformato)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"8":
+              let isbnBuscar=prompt("ingrese el ISBN del libro a buscar")
+              buscarISBN = libros.find((libro) => {
+                return libro.isbn == isbnBuscar ;
+              });
+              console.table(buscarISBN)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"9":
+            let descripcionBuscar=prompt("ingrese la descripcion del libro a buscar")
+            buscardescripcion= libros.find((libro) => {
+              return libro.descripcion == descripcionBuscar ;
+            });
+              console.table(buscardescripcion)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"10":
+            let ubicacionBuscar=prompt("ingrese la ubicacion de el libro a buscar")
+            buscarubicacion= libros.find((libro) => {
+              return libro.ubicacion == ubicacionBuscar;
+            }); 
+              console.table(buscarubicacion)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"11":  
+              let estadoBuscar=prompt("ingrese el estado de el libro a buscar")
+              buscarestado= libros.find((libro) => {
+                return libro.estado == estadoBuscar;
+              });
+              console.table(buscarestado)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"12":
+              let editorialBuscar=prompt("ingrese la editorial del libro a buscar")
+              buscareditorial= libros.find((libro) => {
+                return libro.editorial == editorialBuscar;
+              });
+              console.table(buscareditorial)
+              opcion=prompt("desea salir? escriba si/no")
+              break
+            case"13":
+              let paginasBuscar=prompt("ingrese el # de paginas del libro a buscar")
+              buscarpaginas= libros.find((libro) => {
+                return libro.paginas == paginasBuscar;
+              });
+              console.table(buscarpaginas)
+              opcion=prompt("desea salir? escriba si/no")
+              break  
+            case"14":
+              let pesoBuscar=prompt("ingrese el peso del libro a buscar")
+              buscarpeso= libros.find((libro) => {
+                return libro.peso == pesoBuscar;
+              });
+              console.table(buscarpeso)
+              opcion=prompt("desea salir? escriba si/no")
+              break  
+            case"15":
+              let dimencionesBuscar=prompt("ingrese las dimenciones del libro a buscar")
+              buscardimenciones= libros.find((libro) => {
+                return libro.dimensiones == dimencionesBuscar;
+              });
+              console.table(buscardimenciones)
+              opcion=prompt("desea salir? escriba si/no")
+              break
             }
-            break;}
+        break    
+       }
 }
 
 
